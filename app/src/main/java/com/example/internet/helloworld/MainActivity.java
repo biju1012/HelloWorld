@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import static com.example.internet.helloworld.R.layout.activity_second;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Button button = (Button) findViewById(R.id.bt_first_to_second);
         setSupportActionBar(toolbar);
 
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -52,8 +53,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void goToSecondActivity () {
-
+        public void goToSecondActivity () {
+        Button button = (Button) findViewById(R.id.bt_first_to_second);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                setContentView(activity_second);
+            }
+        });
     }
 }
