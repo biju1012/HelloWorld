@@ -1,5 +1,6 @@
 package com.example.internet.helloworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Ersetze diese Taste mit einer eigenen Aktion!", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Ersetze diese Tasde mit einer eigenen Aktion!", Snackbar.LENGTH_LONG)
                         .setAction("Aktion", null).show();
             }
         });
@@ -53,13 +54,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-        public void goToSecondActivity () {
-        Button button = (Button) findViewById(R.id.bt_first_to_second);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Perform action on click
-                setContentView(activity_second);
-            }
-        });
+        public void goToSecondActivity (View view) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 }
